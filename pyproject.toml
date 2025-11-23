@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "filedust"
+version = "0.1.0"
+description = "Opinionated junk cleaner for dev machines (caches, build artifacts, editor backups)."
+authors = ["Marco D'Aleo <marco@marcodaleo.com>"]
+license = "GPL-3.0-or-later"
+readme = "README.md"
+homepage = "https://github.com/mdaleo404/filedust"
+repository = "https://github.com/mdaleo404/filedust"
+packages = [{ include = "filedust", from = "src" }]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<4.0"
+
+[tool.poetry.scripts]
+filedust = "filedust.cli:main"
+
+[tool.poetry.dev-dependencies]
+pytest = "^9.0.1"
+pytest-cov = "^7.0.0"
+pre-commit = "^3.8"
+
+[tool.black]
+line-length = 79
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
