@@ -1,4 +1,4 @@
-![License](https://img.shields.io/github/license/mdaleo404/filedust)
+[![License](https://img.shields.io/github/license/mdaleo404/filedust)](LICENCE)
 [![Language](https://img.shields.io/github/languages/top/mdaleo404/filedust.svg)](https://github.com/mdaleo404/filedust/)
 ![GitHub Release](https://img.shields.io/github/v/release/mdaleo404/filedust?display_name=release&logo=github)
 ![PyPI - Version](https://img.shields.io/pypi/v/filedust?logo=pypi)
