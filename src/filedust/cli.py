@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import importlib.metadata
 import argparse
+import argcomplete
 import shutil
 from pathlib import Path
 from typing import List
@@ -95,6 +96,11 @@ def build_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="Delete without prompting for confirmation.",
     )
+
+    try:
+        argcomplete.autocomplete(parser)
+    except ImportError:
+        pass
 
     return parser
 

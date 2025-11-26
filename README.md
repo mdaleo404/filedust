@@ -36,3 +36,27 @@ Shows how much disk space can be freed.
 
 ### Safe by design
 Never touches dotfiles, configs, project files, or anything important.
+
+## Installation
+
+### From PyPI
+```
+pip install filedust
+```
+
+### From this repository
+```
+git clone https://github.com/mdaleo404/filedust.git
+cd filedust/
+poetry install
+```
+
+### TAB completion
+Add this to your `.bashrc`
+```
+eval "$(register-python-argcomplete filedust)"
+```
+And then
+```
+source ~/.bashrc
+```
