@@ -5,8 +5,8 @@ description = "Opinionated junk cleaner for dev machines (caches, build artifact
 authors = ["Marco D'Aleo <marco@marcodaleo.com>"]
 license = "GPL-3.0-or-later"
 readme = "README.md"
-homepage = "https://github.com/mdaleo404/filedust"
-repository = "https://github.com/mdaleo404/filedust"
+homepage = "https://github.com/guardutils/filedust"
+repository = "https://github.com/guardutils/filedust"
 packages = [{ include = "filedust", from = "src" }]
 
 [tool.poetry.dependencies]

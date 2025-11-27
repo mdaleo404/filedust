@@ -1,8 +1,7 @@
-[![License](https://img.shields.io/github/license/mdaleo404/filedust?style=flat)](LICENCE)
-[![Language](https://img.shields.io/github/languages/top/mdaleo404/filedust.svg)](https://github.com/mdaleo404/filedust/)
-![GitHub Release](https://img.shields.io/github/v/release/mdaleo404/filedust?display_name=release&logo=github)
+[![License](https://img.shields.io/github/license/guardutils/filedust?style=flat)](LICENCE)
+[![Language](https://img.shields.io/github/languages/top/guardutils/filedust.svg)](https://github.com/guardutils/filedust/)
+![GitHub Release](https://img.shields.io/github/v/release/guardutils/filedust?display_name=release&logo=github)
 ![PyPI - Version](https://img.shields.io/pypi/v/filedust?logo=pypi)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/mdaleo404/filedust/.github/workflows/lint-and-security.yml)](https://github.com/mdaleo404/filedust/actions)
 [![PyPI downloads](https://img.shields.io/pypi/dm/filedust.svg)](https://pypi.org/project/filedust/)
 
 # filedust
@@ -46,7 +45,7 @@ pip install filedust
 
 ### From this repository
 ```
-git clone https://github.com/mdaleo404/filedust.git
+git clone https://github.com/guardutils/filedust.git
 cd filedust/
 poetry install
 ```
