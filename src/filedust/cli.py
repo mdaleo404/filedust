@@ -172,6 +172,19 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     root = Path(args.path).expanduser()
+    home = Path.home().resolve()
+    root_resolved = root.resolve()
+
+    # Ensure root is inside the user's home directory
+    try:
+        root_resolved.relative_to(home)
+    except ValueError:
+        console.print(
+            f"[red]Error:[/] Refusing to operate outside the user's home directory.\n"
+            f"Requested: {root_resolved}\n"
+            f"Allowed:   {home}"
+        )
+        return 1
 
     if not root.exists():
         console.print(f"[red]Error:[/] Path not found: {root}")

@@ -23,7 +23,6 @@ JUNK_DIR_NAMES = {
     ".nox",
     ".tox",
     ".hypothesis",
-    ".cache",
     ".gradle",
     ".parcel-cache",
     ".turbo",
@@ -31,7 +30,6 @@ JUNK_DIR_NAMES = {
     ".vite",
     ".sass-cache",
     ".sass-cache",
-    "build",
     "dist",
 }
 
@@ -53,6 +51,8 @@ JUNK_FILE_PATTERNS = [
 
 # VCS / system dirs
 SKIP_DIR_NAMES = {
+    ".cache",
+    "build",
     ".git",
     ".hg",
     ".svn",
