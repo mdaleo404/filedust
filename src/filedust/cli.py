@@ -12,7 +12,7 @@ from rich.table import Table
 from rich.prompt import Confirm
 from rich import box
 
-from .junk import Finding, iter_junk
+from .junk import Finding, iter_junk, load_user_rules
 
 
 console = Console()
@@ -168,6 +168,7 @@ def delete_all(findings: List[Finding]) -> int:
 
 
 def main(argv: list[str] | None = None) -> int:
+    print("Looking for junk ...")
     parser = build_parser()
     args = parser.parse_args(argv)
 
@@ -196,7 +197,8 @@ def main(argv: list[str] | None = None) -> int:
             "This may take a while and may require sudo for deletions.[/]"
         )
 
-    findings = list(iter_junk(root))
+    rules = load_user_rules()
+    findings = list(iter_junk(root, rules=rules))
     total_size = compute_total_size(findings)
 
     if not findings:
