@@ -168,7 +168,6 @@ def delete_all(findings: List[Finding]) -> int:
 
 
 def main(argv: list[str] | None = None) -> int:
-    print("Looking for junk ...")
     parser = build_parser()
     args = parser.parse_args(argv)
 
@@ -190,6 +189,8 @@ def main(argv: list[str] | None = None) -> int:
     if not root.exists():
         console.print(f"[red]Error:[/] Path not found: {root}")
         return 1
+
+    print("Looking for junk ...")
 
     if root.resolve() == Path("/"):
         console.print(
