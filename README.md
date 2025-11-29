@@ -34,7 +34,11 @@ One interactive prompt at the end of the run (unless -y is used).
 Shows how much disk space can be freed.
 
 ### Safe by design
-Never touches dotfiles, configs, project files, or anything important.
+* It ONLY runs within user's `$HOME`
+
+* Put user in control by reading `~/.filedust.conf`
+
+* Never touches dotfiles, configs, project files, or anything important unless you want.
 
 ## Installation
 
@@ -48,6 +52,12 @@ pip install filedust
 git clone https://github.com/guardutils/filedust.git
 cd filedust/
 poetry install
+```
+
+### Custom config
+You can download the example and add your custom rule
+```
+wget -O ~/.filedust.conf https://raw.githubusercontent.com/guardutils/filedust/main/.filedust.conf.example
 ```
 
 ### TAB completion
