@@ -1,0 +1,20 @@
+# filedust configuration file
+# Place at: ~/.filedust.conf
+#
+# Use this file to customize cleanup behavior.
+# Only keys matter (no values). Paths are relative to $HOME.
+#
+# Patterns (globs) are allowed.
+
+[exclude]
+# Add directories or patterns you want filedust to ignore.
+# Examples:
+# Projects/important/*
+
+[include]
+# Add directories or patterns you want filedust to remove.
+# Examples:
+# node_modules
+# dist
+# *.tmp
+# *~

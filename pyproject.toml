@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "filedust"
-version = "0.2.0"
+version = "0.3.0"
 description = "Opinionated junk cleaner for dev machines (caches, build artifacts, editor backups)."
 authors = ["Marco D'Aleo <marco@marcodaleo.com>"]
 license = "GPL-3.0-or-later"

@@ -12,7 +12,7 @@ from rich.table import Table
 from rich.prompt import Confirm
 from rich import box
 
-from .junk import Finding, iter_junk
+from .junk import Finding, iter_junk, load_user_rules
 
 
 console = Console()
@@ -168,10 +168,24 @@ def delete_all(findings: List[Finding]) -> int:
 
 
 def main(argv: list[str] | None = None) -> int:
+    print("Looking for junk ...")
     parser = build_parser()
     args = parser.parse_args(argv)
 
     root = Path(args.path).expanduser()
+    home = Path.home().resolve()
+    root_resolved = root.resolve()
+
+    # Ensure root is inside the user's home directory
+    try:
+        root_resolved.relative_to(home)
+    except ValueError:
+        console.print(
+            f"[red]Error:[/] Refusing to operate outside the user's home directory.\n"
+            f"Requested: {root_resolved}\n"
+            f"Allowed:   {home}"
+        )
+        return 1
 
     if not root.exists():
         console.print(f"[red]Error:[/] Path not found: {root}")
@@ -183,7 +197,8 @@ def main(argv: list[str] | None = None) -> int:
             "This may take a while and may require sudo for deletions.[/]"
         )
 
-    findings = list(iter_junk(root))
+    rules = load_user_rules()
+    findings = list(iter_junk(root, rules=rules))
     total_size = compute_total_size(findings)
 
     if not findings:
