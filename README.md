@@ -1,7 +1,7 @@
 [![License](https://img.shields.io/github/license/guardutils/filedust?style=flat)](LICENCE)
 [![Language](https://img.shields.io/github/languages/top/guardutils/filedust.svg)](https://github.com/guardutils/filedust/)
-![GitHub Release](https://img.shields.io/github/v/release/guardutils/filedust?display_name=release&logo=github)
-![PyPI - Version](https://img.shields.io/pypi/v/filedust?logo=pypi)
+[![GitHub Release](https://img.shields.io/github/v/release/guardutils/filedust?display_name=release&logo=github)](https://github.com/guardutils/filedust/releases)
+[![PyPI - Version](https://img.shields.io/pypi/v/filedust?logo=pypi)](https://pypi.org/project/filedust/#history)
 [![PyPI downloads](https://img.shields.io/pypi/dm/filedust.svg)](https://pypi.org/project/filedust/)
 
 # filedust
