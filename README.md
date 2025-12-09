@@ -1,8 +1,6 @@
-[![License](https://img.shields.io/github/license/guardutils/filedust?style=flat)](LICENCE)
-[![Language](https://img.shields.io/github/languages/top/guardutils/filedust.svg)](https://github.com/guardutils/filedust/)
-[![GitHub Release](https://img.shields.io/github/v/release/guardutils/filedust?display_name=release&logo=github)](https://github.com/guardutils/filedust/releases)
-[![PyPI - Version](https://img.shields.io/pypi/v/filedust?logo=pypi)](https://pypi.org/project/filedust/#history)
-[![PyPI downloads](https://img.shields.io/pypi/dm/filedust.svg)](https://pypi.org/project/filedust/)
+[![Licence](https://img.shields.io/badge/GPL--3.0-orange?label=Licence)](https://git.sysmd.uk/guardutils/filedust/src/branch/main/LICENCE)
+[![Gitea Release](https://img.shields.io/gitea/v/release/guardutils/filedust?gitea_url=https%3A%2F%2Fgit.sysmd.uk%2F&style=flat&color=orange&logo=gitea)](https://git.sysmd.uk/guardutils/filedust/releases)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-blue?logo=pre-commit&style=flat)](https://git.sysmd.uk/guardutils/filedust/src/branch/main/.pre-commit-config.yaml)
 
 # filedust
 
@@ -42,6 +40,65 @@ Shows how much disk space can be freed.
 
 ## Installation
 
+### From GuardUtils package repo
+
+This is the preferred method of installation.
+
+### Debian/Ubuntu
+
+#### 1) Import the GPG key
+
+```bash
+sudo mkdir -p /usr/share/keyrings
+curl -fsSL https://repo.sysmd.uk/guardutils/guardutils.gpg | sudo gpg --dearmor -o /usr/share/keyrings/guardutils.gpg
+```
+
+The GPG fingerprint is `0032C71FA6A11EF9567D4434C5C06BD4603C28B1`.
+
+#### 2) Add the APT source
+
+```bash
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/guardutils.gpg] https://repo.sysmd.uk debian main" | sudo tee /etc/apt/sources.list.d/guardutils.list
+```
+
+#### 3) Update and install
+
+```
+sudo apt update
+sudo apt install filedust
+```
+
+### Fedora/RHEL
+
+#### 1) Import the GPG key
+
+```
+sudo rpm --import https://repo.sysmd.uk/guardutils/guardutils.gpg
+```
+
+#### 2) Add the repository configuration
+
+```
+sudo tee /etc/yum.repos.d/guardutils.repo > /dev/null << 'EOF'
+[guardutils]
+name = GuardUtils Repository
+baseurl = https://repo.sysmd.uk/rpm/$basearch
+
+enabled = 1
+gpgcheck = 1
+gpgkey = https://repo.sysmd.uk/guardutils/guardutils.gpg
+
+repo_gpgcheck = 1
+EOF
+```
+
+#### 4) Update and install
+
+```
+sudo dnf upgrade --refresh
+sudo dnf install filedust
+```
+
 ### From PyPI
 ```
 pip install filedust
@@ -57,7 +114,7 @@ poetry install
 ### Custom config
 You can download the example and add your custom rule
 ```
-wget -O ~/.filedust.conf https://raw.githubusercontent.com/guardutils/filedust/main/.filedust.conf.example
+wget -O ~/.filedust.conf https://git.sysmd.uk/guardutils/filedust/raw/branch/main/.filedust.conf.example
 ```
 
 ### TAB completion
@@ -69,3 +126,13 @@ And then
 ```
 source ~/.bashrc
 ```
+
+## pre-commit
+This project uses [**pre-commit**](https://pre-commit.com/) to run automatic formatting and security checks before each commit (Black, Bandit, and various safety checks).
+
+To enable it:
+```
+poetry install
+poetry run pre-commit install
+```
+This ensures consistent formatting, catches common issues early, and keeps the codebase clean.
