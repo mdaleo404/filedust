@@ -104,7 +104,7 @@ pip install filedust
 
 ### From this repository
 ```
-git clone https://github.com/guardutils/filedust.git
+git clone https://git.sysmd.uk/guardutils/filedust.git
 cd filedust/
 poetry install
 ```
