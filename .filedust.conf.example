@@ -2,9 +2,12 @@
 # Place at: ~/.filedust.conf
 #
 # Use this file to customize cleanup behavior.
-# Only keys matter (no values). Paths are relative to $HOME.
 #
-# Patterns (globs) are allowed.
+# Patterns are matched against paths relative to $HOME
+# Supports:
+#   *   = one path segment
+#   **  = zero or more path segments (recursive)
+# Matching is case-sensitive
 
 [exclude]
 # Add directories or patterns you want filedust to ignore.

@@ -20,6 +20,7 @@ def load_user_rules() -> UserRules:
 
     if cfg_path.exists():
         parser = configparser.ConfigParser(allow_no_value=True)
+        parser.optionxform = str
         parser.read(cfg_path)
 
         if parser.has_section("include"):
@@ -32,8 +33,46 @@ def load_user_rules() -> UserRules:
 
 
 def matches_any(patterns: list[str], relpath: Path) -> bool:
-    posix = relpath.as_posix()
-    return any(fnmatch(posix, p) for p in patterns)
+    """
+    True globstar matcher.
+
+    Rules:
+    - *  matches exactly one path segment
+    - ** matches zero or more segments
+    - Patterns are relative to $HOME
+    """
+
+    path_parts = relpath.parts
+
+    for pat in patterns:
+        pat = pat.strip("/")
+
+        pat_parts = tuple(pat.split("/"))
+
+        if _match_parts(pat_parts, path_parts):
+            return True
+
+    return False
+
+
+def _match_parts(pat: tuple[str, ...], path: tuple[str, ...]) -> bool:
+    """Recursive glob matcher with ** support."""
+    if not pat:
+        return not path
+
+    if pat[0] == "**":
+        # ** matches zero or more segments
+        return _match_parts(pat[1:], path) or (
+            bool(path) and _match_parts(pat, path[1:])
+        )
+
+    if not path:
+        return False
+
+    if fnmatch(path[0], pat[0]):
+        return _match_parts(pat[1:], path[1:])
+
+    return False
 
 
 @dataclass
@@ -148,11 +187,11 @@ def iter_junk(root: Path, rules: UserRules | None = None) -> Iterable[Finding]:
     for dirpath, dirnames, filenames in os.walk(root, followlinks=False):
         dirpath_p = Path(dirpath)
 
-        # Fast relative path computation
-        if dirpath == root_str:
-            rel_dir = Path(".")
-        else:
-            rel_dir = Path(dirpath[len(root_str) :].lstrip("/"))
+        try:
+            rel_dir = dirpath_p.resolve().relative_to(HOME)
+        except ValueError:
+            # Should never happen due to earlier checks
+            continue
 
         # USER EXCLUDE → skip entire subtree
         if matches_any(rules.exclude, rel_dir):
