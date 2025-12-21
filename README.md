@@ -4,6 +4,10 @@
 
 # filedust
 
+<div align="center">
+  <img src="filedust.png" alt="filedust logo" width="256" />
+</div>
+
 **filedust** is a small, fast, and safe command-line tool that scans your filesystem for obvious junk — things like Python __pycache__ folders, build artifacts, editor backup files, and leftover temporary files — and cleans them up.
 
 Think of it as “`autoremove` for files.”
