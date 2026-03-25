@@ -154,7 +154,7 @@ jobs:
         run: |
           jq '
           {
-            repo: "guardutils/chguard",
+            repo: "guardutils/filedust",
             summary: (
               "Total: " +
               (
