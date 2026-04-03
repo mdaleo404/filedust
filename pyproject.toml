@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "filedust"
-version = "0.4.1"
+version = "0.4.2"
 description = "Opinionated junk cleaner for dev machines (caches, build artifacts, editor backups)."
 authors = ["Marco D'Aleo <marco@marcodaleo.com>"]
 license = "GPL-3.0-or-later"
@@ -17,7 +17,7 @@ argcomplete = ">=2"
 [tool.poetry.scripts]
 filedust = "filedust.cli:main"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 pytest = "^9.0.1"
 pytest-cov = "^7.0.0"
 pre-commit = "^3.8"
