@@ -14,7 +14,6 @@ from rich import box
 
 from .junk import Finding, iter_junk, load_user_rules
 
-
 console = Console()
 
 
