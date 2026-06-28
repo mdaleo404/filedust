@@ -138,3 +138,11 @@ poetry install
 poetry run pre-commit install
 ```
 This ensures consistent formatting, catches common issues early, and keeps the codebase clean.
+
+## Tests
+
+Run the test suite:
+
+```bash
+poetry run pytest
+```
