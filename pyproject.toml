@@ -1,21 +1,25 @@
-[tool.poetry]
+[project]
 name = "filedust"
 version = "0.4.3"
 description = "Opinionated junk cleaner for dev machines (caches, build artifacts, editor backups)."
-authors = ["Marco D'Aleo <marco@marcodaleo.com>"]
+authors = [{ name = "Marco D'Aleo", email = "marco@marcodaleo.com" }]
 license = "GPL-3.0-or-later"
 readme = "README.md"
-homepage = "https://git.sysmd.uk/guardutils/filedust"
-repository = "https://git.sysmd.uk/guardutils/filedust"
-packages = [{ include = "filedust", from = "src" }]
+requires-python = ">=3.10,<4.0"
+dependencies = [
+    "rich>=12",
+    "argcomplete>=2",
+]
 
-[tool.poetry.dependencies]
-python = ">=3.10,<4.0"
-rich = ">=12"
-argcomplete = ">=2"
+[project.urls]
+Homepage = "https://git.sysmd.uk/guardutils/filedust"
+Repository = "https://git.sysmd.uk/guardutils/filedust"
 
-[tool.poetry.scripts]
+[project.scripts]
 filedust = "filedust.cli:main"
+
+[tool.poetry]
+packages = [{ include = "filedust", from = "src" }]
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^9.0.1"
@@ -26,5 +30,5 @@ pre-commit = "^3.8"
 line-length = 79
 
 [build-system]
-requires = ["poetry-core"]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
