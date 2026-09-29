@@ -146,3 +146,9 @@ Run the test suite:
 ```bash
 poetry run pytest
 ```
+
+## Support
+
+If you find **filedust** useful, consider supporting its development:
+
+[![Support me on Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/mdaleo404)
