@@ -1,6 +1,6 @@
 [project]
 name = "filedust"
-version = "0.4.3"
+version = "0.4.4"
 description = "Opinionated junk cleaner for dev machines (caches, build artifacts, editor backups)."
 authors = [{ name = "Marco D'Aleo", email = "marco@marcodaleo.com" }]
 license = "GPL-3.0-or-later"
