@@ -1,11 +1,11 @@
 [project]
 name = "filedust"
-version = "0.4.4"
+version = "0.5.0"
 description = "Opinionated junk cleaner for dev machines (caches, build artifacts, editor backups)."
 authors = [{ name = "Marco D'Aleo", email = "marco@marcodaleo.com" }]
 license = "GPL-3.0-or-later"
 readme = "README.md"
-requires-python = ">=3.10,<4.0"
+requires-python = ">=3.11,<4.0"
 dependencies = [
     "rich>=12",
     "argcomplete>=2",
